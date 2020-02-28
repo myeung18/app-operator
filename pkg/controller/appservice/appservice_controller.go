@@ -87,11 +87,19 @@ func (r *ReconcileAppService) Reconcile(request reconcile.Request) (reconcile.Re
 	reqLogger := log.WithValues("Request.Namespace", request.Namespace, "Request.Name", request.Name)
 	reqLogger.Info("Reconciling AppService")
 
-	webconsole.LoadWebConsoleYamlSamples("dsfaljl", "ldsajflk")
+	reqLogger.Info("ready to create web console - ")
+	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../../deploy/examples", "consoleyamlsamples")
+	if err != nil {
+		reqLogger.Error(err, "webconsole yaml not successfully applied")
+	}
+	for k, v := range resMap {
+		reqLogger.Info("webconsole info: ", "name: ", k, ", status:", v)
+	}
+
 
 	// Fetch the AppService instance
 	instance := &appv1alpha1.AppService{}
-	err := r.client.Get(context.TODO(), request.NamespacedName, instance)
+	err = r.client.Get(context.TODO(), request.NamespacedName, instance)
 	if err != nil {
 		if errors.IsNotFound(err) {
 			// Request object not found, could have been deleted after reconcile request.

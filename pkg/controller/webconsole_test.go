@@ -7,7 +7,7 @@ import (
 )
 
 func TestLoadYaml(t *testing.T) {
-	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../example", "resources")
+	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../examples", "consoleyamlsamples")
 	if err != nil {
 		fmt.Println(err)
 	}
