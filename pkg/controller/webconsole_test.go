@@ -3,11 +3,14 @@ package controller
 import (
 	"fmt"
 	"github.com/myeung18/operator-utils/pkg/webconsole"
+	"strings"
 	"testing"
 )
 
 func TestLoadYaml(t *testing.T) {
-	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../examples", "consoleyamlsamples")
+	filename := strings.Join([]string{"abc", "def--"}, "/")
+	fmt.Println("filename:", filename)
+	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../example", "consoleyamlsamples")
 	if err != nil {
 		fmt.Println(err)
 	}

@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab5b9aa-0478-4638-a35b-a3517f874e60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/console/consoleclidownload.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/console/consoleexternalloglink.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/console/consolelink.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/console/consolenotification.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/consoleyamlsamples/interconnect_cr.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/consoleyamlsamples/job.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/consoleyamlsamples/pod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/consoleyamlsamples/sample_cr.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/controller/appservice/appservice_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/controller/appservice/appservice_controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/controller/webconsole_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/controller/webconsole_test.go" afterDir="false" />
     </list>
@@ -42,6 +35,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/deploy" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/pkg/controller" />
     </key>
