@@ -87,8 +87,8 @@ func (r *ReconcileAppService) Reconcile(request reconcile.Request) (reconcile.Re
 	reqLogger := log.WithValues("Request.Namespace", request.Namespace, "Request.Name", request.Name)
 	reqLogger.Info("Reconciling AppService")
 
-	reqLogger.Info("ready to create web console - up one more level work?")
-	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../../../deploy/examples", "consoleyamlsamples")
+	reqLogger.Info("ready to create web console - changed creating path")
+	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../../examples", "consoleyamlsamples")
 	if err != nil {
 		reqLogger.Error(err, "webconsole yaml not successfully applied")
 	}
@@ -96,6 +96,14 @@ func (r *ReconcileAppService) Reconcile(request reconcile.Request) (reconcile.Re
 		reqLogger.Info("webconsole info: ", "name: ", k, ", status:", v)
 	}
 
+	reqLogger.Info("test another path : ")
+	resMap, err = webconsole.LoadWebConsoleYamlSamples("../../apis/", "app")
+	if err != nil {
+		reqLogger.Error(err, "webconsole yaml not successfully applied")
+	}
+	for k, v := range resMap {
+		reqLogger.Info("webconsole info: ", "name: ", k, ", status:", v)
+	}
 
 	// Fetch the AppService instance
 	instance := &appv1alpha1.AppService{}
