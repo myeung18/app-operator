@@ -3,6 +3,8 @@ module github.com/example-inc/app-operator
 go 1.13
 
 require (
+	github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32
+	github.com/gobuffalo/packr/v2 v2.5.2
 	github.com/myeung18/operator-utils v0.0.0-20200302164142-cd09d2a4093c
 	github.com/operator-framework/operator-sdk v0.15.1-0.20200227224723-453e43e06c89
 	github.com/spf13/pflag v1.0.5
