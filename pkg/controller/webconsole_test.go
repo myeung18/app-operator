@@ -10,7 +10,7 @@ import (
 func TestLoadYaml(t *testing.T) {
 	filename := strings.Join([]string{"abc", "def--"}, "/")
 	fmt.Println("filename:", filename)
-	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../example", "consoleyamlsamples")
+	resMap, err := LoadWebConsoleYamlSamples_local("../../examples", "consoleyamlsamples")
 	if err != nil {
 		fmt.Println(err)
 	}

@@ -87,7 +87,7 @@ func (r *ReconcileAppService) Reconcile(request reconcile.Request) (reconcile.Re
 	reqLogger := log.WithValues("Request.Namespace", request.Namespace, "Request.Name", request.Name)
 	reqLogger.Info("Reconciling AppService")
 
-	reqLogger.Info("ready to create web console - changed creating path")
+	reqLogger.Info("ready to create web console - changed creating path IOutil ")
 	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../../examples", "consoleyamlsamples")
 	if err != nil {
 		reqLogger.Error(err, "webconsole yaml not successfully applied")

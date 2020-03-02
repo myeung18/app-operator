@@ -3,8 +3,7 @@ module github.com/example-inc/app-operator
 go 1.13
 
 require (
-	github.com/RHsyseng/operator-utils v0.0.0-20190625182225-232650febd72 // indirect
-	github.com/myeung18/operator-utils v0.0.0-20200227153117-e39f71f8ff31
+	github.com/myeung18/operator-utils v0.0.0-20200302164142-cd09d2a4093c
 	github.com/operator-framework/operator-sdk v0.15.1-0.20200227224723-453e43e06c89
 	github.com/spf13/pflag v1.0.5
 	k8s.io/api v0.17.2
@@ -42,7 +41,5 @@ replace (
 replace github.com/docker/docker => github.com/moby/moby v0.7.3-0.20190826074503-38ab9da00309 // Required by Helm
 
 replace github.com/openshift/api => github.com/openshift/api v0.0.0-20200217161739-c99157bc6492 // Required until https://github.com/operator-framework/operator-lifecycle-manager/pull/1241 is resolved
-
-replace github.com/RHsyseng/operator-utils => github.com/myeung18/operator-utils v0.0.0-20200229000031-e4ad78540017
 
 replace github.com/openshift/client-go => github.com/openshift/client-go v0.0.0-20200116152001-92a2713fa240
