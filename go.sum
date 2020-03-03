@@ -549,8 +549,8 @@ github.com/munnerz/goautoneg v0.0.0-20190414153302-2ae31c8b6b30/go.mod h1:+n7T8m
 github.com/mvdan/xurls v1.1.0/go.mod h1:tQlNn3BED8bE/15hnSL2HLkDeLWpNPAwtw7wkEq44oU=
 github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRWi+5nqEBWmkhHvq77mSJWrCKwh8bxhgT7d/eI7P4U=
 github.com/mxk/go-flowrate v0.0.0-20140419014527-cca7078d478f/go.mod h1:ZdcZmHo+o7JKHSa8/e818NopupXU1YMK5fe1lsApnBw=
-github.com/myeung18/operator-utils v0.0.0-20200302164142-cd09d2a4093c h1:9wtzNez4IEsWCYeLOR8ka7ISrrFBrB3vDp0KkSISMds=
-github.com/myeung18/operator-utils v0.0.0-20200302164142-cd09d2a4093c/go.mod h1:cJFhbwAbdCHPROEPQtvWTPvpT3X7xCx2eRRZK3rM8Yk=
+github.com/myeung18/operator-utils v0.0.0-20200302214225-18ac52cb45ed h1:ZkXfTpyWjne1rNlkdJsJqQanPnOBdb7bHuwgx9SNzVE=
+github.com/myeung18/operator-utils v0.0.0-20200302214225-18ac52cb45ed/go.mod h1:cJFhbwAbdCHPROEPQtvWTPvpT3X7xCx2eRRZK3rM8Yk=
 github.com/nakagami/firebirdsql v0.0.0-20190310045651-3c02a58cfed8/go.mod h1:86wM1zFnC6/uDBfZGNwB65O+pR2OFi5q/YQaEUid1qA=
 github.com/naoina/go-stringutil v0.1.0/go.mod h1:XJ2SJL9jCtBh+P9q5btrd/Ylo8XwT/h1USek5+NqSA0=
 github.com/naoina/toml v0.1.1/go.mod h1:NBIhNtsFMo3G2szEBne+bO4gS192HuIYRqfvOWb4i1E=

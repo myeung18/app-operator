@@ -3,6 +3,7 @@ package appservice
 import (
 	"context"
 	appv1alpha1 "github.com/example-inc/app-operator/pkg/apis/app/v1alpha1"
+	"github.com/myeung18/operator-utils/pkg/webconsole"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -86,7 +87,7 @@ func (r *ReconcileAppService) Reconcile(request reconcile.Request) (reconcile.Re
 	reqLogger.Info("Reconciling AppService")
 
 	reqLogger.Info("ready to create web console - changed creating local path")
-	resMap, err := LoadWebConsoleYamlSamplesLocal("../../../deploy/examples", "consoleyamlsamples")
+	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../../deploy/examples", "consoleyamlsamples")
 	if err != nil {
 		reqLogger.Error(err, "webconsole yaml not successfully applied")
 	}
