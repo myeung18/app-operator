@@ -17,7 +17,12 @@ func LoadWebConsoleYamlSamplesLocal(path string, folder string) (map[string]stri
 
 func loadfiles(path string, folder string) (map[string]string, error) {
 	fullpath := strings.Join([]string{path, folder}, "/")
-	box := packr.New("webconsoleyaml", "../../../deploy/examples")
+	box := packr.New("consoleyamlsamples", "../../../deploy/examples/consoleyamlsamples")
+	if !box.HasDir(folder) || box.List() == nil {
+		return nil, fmt.Errorf("%s not found ", fullpath)
+	}
+
+	box = packr.New("webconsole", "../../../deploy/examples/webconsole")
 	if !box.HasDir(folder) || box.List() == nil {
 		return nil, fmt.Errorf("%s not found ", fullpath)
 	}

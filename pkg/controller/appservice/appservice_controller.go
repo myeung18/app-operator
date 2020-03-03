@@ -34,6 +34,16 @@ func Add(mgr manager.Manager) error {
 
 // newReconciler returns a new reconcile.Reconciler
 func newReconciler(mgr manager.Manager) reconcile.Reconciler {
+
+	log.Info("ready to create web console - calling operator-util... ")
+	resMap, err := webconsole.LoadWebConsoleYamlSamples("consoleyamlsamples", "","");
+	if err != nil {
+		log.Error(err, "webconsole yaml not successfully applied")
+	}
+	for k, v := range resMap {
+		log.Info("webconsole info: ", "name: ", k, ", status:", v)
+	}
+
 	return &ReconcileAppService{client: mgr.GetClient(), scheme: mgr.GetScheme()}
 }
 
@@ -86,18 +96,9 @@ func (r *ReconcileAppService) Reconcile(request reconcile.Request) (reconcile.Re
 	reqLogger := log.WithValues("Request.Namespace", request.Namespace, "Request.Name", request.Name)
 	reqLogger.Info("Reconciling AppService")
 
-	reqLogger.Info("ready to create web console - changed creating local path")
-	resMap, err := webconsole.LoadWebConsoleYamlSamples("../../../deploy/examples", "consoleyamlsamples")
-	if err != nil {
-		reqLogger.Error(err, "webconsole yaml not successfully applied")
-	}
-	for k, v := range resMap {
-		reqLogger.Info("webconsole info: ", "name: ", k, ", status:", v)
-	}
-
 	// Fetch the AppService instance
 	instance := &appv1alpha1.AppService{}
-	err = r.client.Get(context.TODO(), request.NamespacedName, instance)
+	err := r.client.Get(context.TODO(), request.NamespacedName, instance)
 	if err != nil {
 		if errors.IsNotFound(err) {
 			// Request object not found, could have been deleted after reconcile request.
