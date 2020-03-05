@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/ghodss/yaml"
 	"github.com/gobuffalo/packr/v2"
+	"github.com/myeung18/operator-utils/pkg/webconsole"
 	creator "github.com/myeung18/operator-utils/pkg/webconsole/creator"
 	"io/ioutil"
 	"os"
@@ -13,6 +14,25 @@ import (
 
 func LoadWebConsoleYamlSamplesLocal(path string, folder string) (map[string]string, error) {
 	return loadfiles(path, folder)
+}
+
+func LoadFilesOnlyWithBox(boxname string, path string, folder string) ([]string, error) {
+	fullpath := strings.Join([]string{path, folder}, "/")
+	box := packr.New(boxname, fullpath)
+	if  box.List() == nil {
+		return nil, fmt.Errorf("%s not found ", fullpath)
+	}
+
+	var files []string
+	for _, filename := range box.List() {
+		yamlStr, err := box.FindString(filename)
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		files = append(files, yamlStr)
+	}
+	return files, nil
 }
 
 func loadfiles(path string, folder string) (map[string]string, error) {
@@ -84,3 +104,40 @@ func listDir(path string, folder string) {
 		})
 }
 
+func loadTestFiles(path string, folder string) []string {
+	fullpath := strings.Join([]string{path, folder}, "/")
+
+	fileList, err := ioutil.ReadDir(fullpath)
+	if err != nil {
+		fmt.Println( fmt.Errorf("%s not found with io ", fullpath))
+	}
+
+	var files []string
+	for _, filename := range fileList {
+		yamlStr, err := ioutil.ReadFile(fullpath + "/" + filename.Name())
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		files = append(files, string(yamlStr))
+	}
+	//for _, f := range files {
+	//	a := []rune(f)
+	//	fmt.Println("filename: ", string(a[0: 10]))
+	//
+	//	err := ApplyWebConsoleYaml(f)
+	//	if err != nil {
+	//		fmt.Println(err)
+	//	}
+	//}
+
+	resMap, err := webconsole.ApplyMultipleWebConsoleYamls(files)
+	if err != nil {
+		fmt.Println(err)
+	}
+	for k, v := range resMap {
+		//fmt.Println(files[k])
+		fmt.Println(k, " - ", v)
+	}
+	return files
+}

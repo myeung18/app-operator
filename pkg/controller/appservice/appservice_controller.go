@@ -36,7 +36,11 @@ func Add(mgr manager.Manager) error {
 func newReconciler(mgr manager.Manager) reconcile.Reconciler {
 
 	log.Info("ready to create web console - calling operator-util... ")
-	resMap, err := webconsole.LoadWebConsoleYamlSamples("consoleyamlsamples", "","");
+	files, err := LoadFilesOnlyWithBox("consoleyamlsamples", "noop", "noop")
+	if err != nil {
+		log.Error(err, "yaml stings not loaded")
+	}
+	resMap, err := webconsole.ApplyMultipleWebConsoleYamls(files)
 	if err != nil {
 		log.Error(err, "webconsole yaml not successfully applied")
 	}
