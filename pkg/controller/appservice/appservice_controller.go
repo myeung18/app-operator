@@ -2,8 +2,8 @@ package appservice
 
 import (
 	"context"
-	appv1alpha1 "github.com/example-inc/app-operator/pkg/apis/app/v1alpha1"
-	"github.com/myeung18/operator-utils/pkg/webconsole"
+	"fmt"
+	appv1alpha1 "github.com/myeung18/app-operator/pkg/apis/app/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -27,7 +27,8 @@ var log = logf.Log.WithName("controller_appservice")
  */
 
 // Add creates a new AppService Controller and adds it to the Manager. The Manager will set fields on the Controller
-// and Start it when the Manager is Started.
+// and Start it when the Manager is Started.create
+var ProductName string
 func Add(mgr manager.Manager) error {
 	return add(mgr, newReconciler(mgr))
 }
@@ -35,18 +36,11 @@ func Add(mgr manager.Manager) error {
 // newReconciler returns a new reconcile.Reconciler
 func newReconciler(mgr manager.Manager) reconcile.Reconciler {
 
-	log.Info("ready to create web console - calling operator-util... ")
-	files, err := LoadFilesOnlyWithBox("consoleyamlsamples", "noop", "noop")
-	if err != nil {
-		log.Error(err, "yaml stings not loaded")
+	log.Info("ready to create web console - calling operator-util... PN: ", ProductName)
+	if ProductName != "" {
+		log.Info("get the value: ", ProductName, " can you display")
 	}
-	resMap, err := webconsole.ApplyMultipleWebConsoleYamls(files)
-	if err != nil {
-		log.Error(err, "webconsole yaml not successfully applied")
-	}
-	for k, v := range resMap {
-		log.Info("webconsole info: ", "name: ", k, ", status:", v)
-	}
+	fmt.Println("Product Name: ", ProductName)
 
 	return &ReconcileAppService{client: mgr.GetClient(), scheme: mgr.GetScheme()}
 }

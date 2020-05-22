@@ -5,4 +5,4 @@
 // and any other packr generated files.
 package appservice
 
-import _ "github.com/example-inc/app-operator/pkg/controller/appservice/packrd"
+import _ "github.com/myeung18/app-operator/pkg/controller/appservice/packrd"

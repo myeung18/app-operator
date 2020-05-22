@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"github.com/example-inc/app-operator/pkg/controller/appservice"
+	"github.com/myeung18/app-operator/pkg/controller/appservice"
 )
 
 func init() {

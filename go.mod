@@ -1,13 +1,24 @@
-module github.com/example-inc/app-operator
+module github.com/myeung18/app-operator
 
 go 1.13
 
 require (
+	github.com/RHsyseng/operator-utils v0.0.0-20200506183821-e3b4a2ba9c30 // indirect
+	github.com/cosiner/argv v0.1.0 // indirect
 	github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32
+	github.com/go-delve/delve v1.4.0 // indirect
 	github.com/gobuffalo/packr/v2 v2.5.2
-	github.com/myeung18/operator-utils v0.0.0-20200305005906-b5a86bffe843
+	github.com/mattn/go-colorable v0.1.6 // indirect
+	github.com/mattn/go-runewidth v0.0.9 // indirect
 	github.com/operator-framework/operator-sdk v0.15.1-0.20200227224723-453e43e06c89
+	github.com/peterh/liner v1.2.0 // indirect
+	github.com/sirupsen/logrus v1.6.0 // indirect
+	github.com/spf13/cobra v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.5
+	go.starlark.net v0.0.0-20200519165436-0aa95694c768 // indirect
+	golang.org/x/arch v0.0.0-20200511175325-f7c78586839d // indirect
+	golang.org/x/sys v0.0.0-20200519105757-fe76b779f299 // indirect
+	gopkg.in/yaml.v2 v2.3.0 // indirect
 	k8s.io/api v0.17.2
 	k8s.io/apimachinery v0.17.2
 	k8s.io/client-go v12.0.0+incompatible

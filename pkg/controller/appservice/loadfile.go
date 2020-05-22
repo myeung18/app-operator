@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/ghodss/yaml"
 	"github.com/gobuffalo/packr/v2"
-	"github.com/myeung18/operator-utils/pkg/webconsole"
-	creator "github.com/myeung18/operator-utils/pkg/webconsole/creator"
+	//"github.com/myeung18/operator-utils/pkg/webconsole"
+	//creator "github.com/myeung18/operator-utils/pkg/webconsole/creator"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -53,8 +53,8 @@ func loadfiles(path string, folder string) (map[string]string, error) {
 		if err != nil {
 			resMap[filename] = err.Error()
 		}
-		obj := &creator.CustomResourceDefinition{}
-		err = yaml.Unmarshal([]byte(yamlStr), obj)
+		//obj := nil //&creator.CustomResourceDefinition{}
+		err = yaml.Unmarshal([]byte(yamlStr), nil)
 		if err != nil {
 			resMap[filename] = err.Error()
 		}
@@ -130,14 +130,14 @@ func loadTestFiles(path string, folder string) []string {
 	//		fmt.Println(err)
 	//	}
 	//}
-
-	resMap, err := webconsole.ApplyMultipleWebConsoleYamls(files)
-	if err != nil {
-		fmt.Println(err)
-	}
-	for k, v := range resMap {
-		//fmt.Println(files[k])
-		fmt.Println(k, " - ", v)
-	}
+	//
+	//resMap, err := webconsole.ApplyMultipleWebConsoleYamls(files)
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+	//for k, v := range resMap {
+	//	//fmt.Println(files[k])
+	//	fmt.Println(k, " - ", v)
+	//}
 	return files
 }

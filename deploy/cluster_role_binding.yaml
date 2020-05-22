@@ -4,7 +4,7 @@ metadata:
   name: app-operator
 subjects:
 - kind: ServiceAccount
-  namespace: ms-test
+  namespace: {{NAMESPACE}}
   name: app-operator
 roleRef:
   kind: ClusterRole
